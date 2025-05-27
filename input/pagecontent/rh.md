@@ -24,14 +24,17 @@ Ces profils sont basés sur les standards FHIR R4 et s’appuient sur le package
 
 
 Dans notre modèle, un **Practitioner** (personne physique) peut avoir plusieurs **PractitionerRole** au cours de sa carrière :
+<div style="text-align: center;">
+  <img src="./exLienPrac.png" alt="Historique des rôles d’Antoine Dupont" style="display: block; margin: 0 auto; width: 600px;">
+</div>
 
-![Historique des rôles d’Antoine Dupont](../images/exLienPrac.png)
+<p>On y voit son ancien poste d’interne, puis son rôle de chirurgien cardiologue et enfin de chef de service.</p>
 
-On y voit son ancien poste d’interne, puis son rôle de chirurgien cardiologue et enfin de chef de service.
+<p>Ensuite, vue d’ensemble de la relation :</p>
 
-Ensuite, vue d’ensemble de la relation :
-
-![Relation Practitioner → PractitionerRole](../images/lienPrac.png)
+<div style="text-align: center;">
+  <img src="./lienPrac.png" alt="Relation Practitioner → PractitionerRole" style="display: block; margin: 0 auto; width: 600px;">
+</div>
 
 #### 1.3. Identifiant RPPS Obligatoire
 
@@ -46,10 +49,11 @@ Ensuite, vue d’ensemble de la relation :
 - **Télécommunications** : Exige au moins un contact (`telecom 1..* MS`) avec `system` et `value` obligatoires, Nous avons décidé de rendre l'email professionnel obligatoire car tous les praticiens doivent avoir une adresse MSSanté.
 - **Raison** : Ces contraintes assurent que les informations minimales nécessaires pour identifier et contacter un soignant sont toujours disponibles.
 
-#### 1.5. Spécificités du Profil `MyPractitionerRole`
+#### 1.5. Spécificités du Profil `ISIS-PractitionerRole`
 
 - **Parent** : `fr-core-practitioner-role`.
-- **Organisation** : Exige une référence à une organisation (`organization 1..1 MS`) pour contextualiser le rôle du soignant.
+- **Organisation** : Exige une référence à une organisation (`organization 1..1 MS`)  afin de relier le soignant à son UF ou EJ de rattachement 
+.
 - **Rôle** : Exige un code de rôle (`code 1..1`) pour définir la fonction du soignant (ex. "Médecin généraliste", "Infirmier"). Nous avons utilisé les ValueSet définis par le FR Core pour être conformes aux exigences françaises. 
 - **Disponibilité** : Les éléments `availableTime`, `notAvailable`, et `AvailableTime` ont été désactivés (`0..0`) car la gestion des disponibilités est déléguée à un service externe de prise de rendez-vous.
   - **Raison** : Simplifier le profil en évitant la redondance avec un système externe dédié à la gestion des agendas.

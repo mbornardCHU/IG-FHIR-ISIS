@@ -1,7 +1,7 @@
 Profile: ISISPractitioner
 Parent: fr-core-practitioner
 Id: ISIS-practitioner
-Title: "My Practitioner Profile"
+Title: "ISIS Practitioner Profile"
 Description: "Profil pour les soignants, incluant un identifiant RPPS obligatoire pour associer un soignant à ses rendez-vous."
 * identifier 1..* MS
 * identifier.system = "https://esante.gouv.fr/produits-services/repertoire-rpps" (exactly) 
