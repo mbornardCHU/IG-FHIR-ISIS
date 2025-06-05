@@ -32,11 +32,14 @@ pages:
         title: Ressources Humaines
     patient.md:
         title: Patient
+    TP_Secretariat_FHIR.md:
+        title: Secretariat
 
 menu:
   Accueil: index.html
   Artifacts: artifacts.html
   Documentation - Cas d'usage:
     Ressources Humaines: rh.html
+    Secretariat: TP_Secretariat_FHIR.html
     
   
